@@ -2,13 +2,10 @@
 limit = int(input())
 words = []
 
-for i in range(0, limit):
+for i in range(limit):
     words.append(input())
 
 def get_hello(word):
-    return "Hello, " + word + "!"
+    print("Hello, " + word + "!")
 
-hello_worlds = map(get_hello, words)
-
-for word in hello_worlds:
-    print(word)
+list(map(get_hello, words))
