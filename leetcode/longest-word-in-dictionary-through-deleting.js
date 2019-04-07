@@ -37,4 +37,3 @@ function getMaxLengthWord(list) {
 
     return maxLengthWord;
 }
-longest-word-in-dictionary-through-deleting
