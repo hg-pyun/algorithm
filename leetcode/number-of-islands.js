@@ -21,8 +21,6 @@ var numIslands = function (grid) {
         }
     }
 
-    console.log(grid);
-
     return color - 2;
 };
 
