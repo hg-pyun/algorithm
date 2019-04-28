@@ -1,7 +1,7 @@
 /**
  * @param {string} s
  * @return {string}
- */https://github.com/hg-pyun/algorithm
+ */
 var longestPalindrome = function (s) {
 
     let result = '';
