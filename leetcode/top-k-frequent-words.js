@@ -24,7 +24,6 @@ var topKFrequent = function(words, k) {
         }
     }
     
-    console.log(countMap);
     const countOrder = [];
     
     for(const count in countMap) {
