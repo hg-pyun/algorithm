@@ -11,7 +11,6 @@ var myPow = function(x, n) {
 };
 
 function pow(x, n) {
-    console.log(x, n)
     if(n === 1) return x;
     return n % 2 === 0 ? pow(x*x, n/2) : x * pow(x*x, Math.floor(n/2))
 }
