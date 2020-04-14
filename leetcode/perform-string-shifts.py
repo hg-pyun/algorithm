@@ -9,4 +9,3 @@ class Solution:
         cut = cut % len(s)
 
         return s[cut:] + s[:cut]
-        
