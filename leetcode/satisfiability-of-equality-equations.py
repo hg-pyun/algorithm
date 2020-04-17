@@ -26,7 +26,7 @@ class Solution:
               
     def equationsPossible(self, equations: List[str]) -> bool:
         
-        # intialize
+        # initialize
         for eq in equations:
             x = eq[0]
             y = eq[3]
