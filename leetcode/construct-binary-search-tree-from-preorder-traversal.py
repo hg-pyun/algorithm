@@ -25,7 +25,6 @@ class Solution:
         root = TreeNode(preorder[0])
         
         for i in range(1, len(preorder)):
-            print(i)
             self.makeTree(preorder[i], root)
         
         return root
