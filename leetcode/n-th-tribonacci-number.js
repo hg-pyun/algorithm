@@ -3,7 +3,13 @@
  * @return {number}
  */
 var tribonacci = function(n) {
-    return [...fibonacci(37)][n]
+    const it = fibonacci(n);
+    let ans = n;
+    for (let i = 0; i <= n; i++) {
+        ans = it.next().value;
+    }
+    
+    return ans;
 };
 
 function* fibonacci(n){
