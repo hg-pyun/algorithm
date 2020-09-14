@@ -3,10 +3,7 @@ class Solution:
         diff_x = abs(p1[0] - p2[0])
         diff_y = abs(p1[1] - p2[1])
         
-        if diff_x == diff_y:
-            return diff_x
-        else:
-            return max(diff_x, diff_y)
+        return max(diff_x, diff_y)
         
     def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
         ans = 0
