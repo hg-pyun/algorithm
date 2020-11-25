@@ -1,7 +1,6 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
         box = None
-        p = 0
         c = 0
         length = len(chars)
         flatten = lambda t: [item for sublist in t for item in sublist]
