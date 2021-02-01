@@ -29,7 +29,6 @@ class Solution:
             for row in range(row_length):
                 if A[col][row] == 1:
                     if col == 0 or row == 0 or col == col_length - 1 or row == row_length - 1:
-                        print('dfs', col, row)
                         dfs(A, col, row)
         
         
