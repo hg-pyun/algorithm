@@ -51,8 +51,5 @@ class Solution:
             
             return s
             
-        
         traversal(root, 0)
         return root
-            
-        
