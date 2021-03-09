@@ -16,13 +16,13 @@ class Solution:
             grid[i][j] = 2
 
             if j > 0:
-                d1 = dfs(grid, i, j - 1)
+                dfs(grid, i, j - 1)
             if j < row_len - 1:
-                d2 = dfs(grid, i, j + 1)
+                dfs(grid, i, j + 1)
             if i > 0:
-                d3 = dfs(grid, i - 1, j)
+                dfs(grid, i - 1, j)
             if i < col_len - 1:
-                d4 = dfs(grid, i + 1, j)
+                dfs(grid, i + 1, j)
         
         
         for i in range(col_len):
