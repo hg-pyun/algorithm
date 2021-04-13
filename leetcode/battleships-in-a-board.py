@@ -3,7 +3,6 @@ class Solution:
         ans = 0
         col_len = len(board)
         row_len = len(board[0])
-        ans = 0
         
         def dfs(board, i, j):
             if board[i][j] == '.':
