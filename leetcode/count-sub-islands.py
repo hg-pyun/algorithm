@@ -9,10 +9,10 @@ class Solution:
         
         grid[col][row] = 0
         land.append([col, row])
-        a = self.floodfill(grid, col + 1, row, col_max, row_max, land)
-        b = self.floodfill(grid, col - 1, row, col_max, row_max, land)
-        c = self.floodfill(grid, col, row + 1, col_max, row_max, land)
-        d = self.floodfill(grid, col, row - 1, col_max, row_max, land)
+        self.floodfill(grid, col + 1, row, col_max, row_max, land)
+        self.floodfill(grid, col - 1, row, col_max, row_max, land)
+        self.floodfill(grid, col, row + 1, col_max, row_max, land)
+        self.floodfill(grid, col, row - 1, col_max, row_max, land)
         
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
         len_col = len(grid1)
