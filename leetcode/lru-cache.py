@@ -1,33 +1,52 @@
+class Node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.prev = None
+        self.next = None
+
 class LRUCache:
 
     def __init__(self, capacity: int):
-        self.cur_cap = 0
-        self.max_cap = capacity
-        self.cache = {}
-        self.p = []
-    
-    def forward (self, key):
-         self.p.insert(0, self.p.pop(self.p.index(key)))
-
+        self.capacity = capacity
+        self.dic = dict()
+        self.head = Node(0, 0)
+        self.tail = Node(0, 0)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        
     def get(self, key: int) -> int:
-        if key in self.p:
-            self.forward(key)
-            return self.cache[key]
-        else:
-            return -1
+        if key in self.dic:
+            node = self.dic[key]
+            self.remove(node)
+            self.add_head(node)
+            return node.value
+        
+        return -1
+        
 
     def put(self, key: int, value: int) -> None:
-        self.cache[key] = value
+        if key in self.dic:
+            self.remove(self.dic[key])
+        elif len(self.dic) >= self.capacity:
+            self.remove(self.tail.prev)
         
-        if key in self.p:
-            self.forward(key)
-        else:
-            if self.cur_cap >= self.max_cap:
-                remove_key = self.p.pop()
-                del self.cache[remove_key]
-            self.cur_cap += 1
-            self.p.insert(0, key)
-            
+        self.add_head(Node(key, value))
+        
+    def add_head(self, node):
+        self.head.next.prev = node
+        node.next = self.head.next
+        node.prev = self.head
+        self.head.next = node
+        self.dic[node.key] = node
+        
+    def remove(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        del self.dic[node.key]
+        
+
+
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
