@@ -16,8 +16,8 @@ class Solution:
         ans = 0
         
         for i in range(length):
-            for j in range(i + 1):
-                for k in range(j + 1):
+            for j in range(i + 1, length):
+                for k in range(j + 1, length):
                     ans = max(ans, self.get_triangle_area(points[i], points[j], points[k]))
         
         return ans
