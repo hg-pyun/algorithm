@@ -6,6 +6,6 @@ class Solution:
         ans = 0
         
         for i in range(0, len(nums) - 1, 2):
-            ans += min(sorted_num[i], sorted_num[i+1])
+            ans += sorted_num[i]
         
         return ans
