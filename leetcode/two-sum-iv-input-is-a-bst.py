@@ -9,17 +9,15 @@ class Solution:
 
         map = {}
 
-
         def dfs(node, map):
             if node is None:
                 return False
                 
             if (k - node.val) in map:
-                print('find')
                 return True
             else:
                 map[node.val] = True
 
-            return node.left and dfs(node.left, map) or node.right and dfs(node.right, map)
+            return dfs(node.left, map) or dfs(node.right, map)
         
         return dfs(root, map)
