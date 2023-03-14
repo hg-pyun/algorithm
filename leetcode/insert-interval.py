@@ -3,7 +3,6 @@ class Solution:
         ans = []
 
         for interval in intervals:
-            print(interval, newInterval)
             if newInterval[1] < interval[0]:
                 ans.append(newInterval)
                 newInterval = interval
