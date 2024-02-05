@@ -5,21 +5,26 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
+    def findIndex(self, nums):
+        max_num = nums[0]
+        target_index = 0
+        for i in range(len(nums)):
+            if max_num < nums[i]:
+                target_index = i
+                max_num = nums[i]
+        
+        return target_index
+
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
         if len(nums) == 0:
             return None
+
+        if len(nums) == 1:
+            return TreeNode(nums[0])
+
+        largest_num_index = self.findIndex(nums)
         
-        max_index = -1
-        max_value = -1
-        for i in range(len(nums)):
-            if max_value < nums[i]:
-                max_index = i
-                max_value = nums[i]
-        
-        left_nums = nums[0:max_index]
-        right_nums = nums[max_index+1:]
-        
-        left_node = self.constructMaximumBinaryTree(left_nums)
-        right_node = self.constructMaximumBinaryTree(right_nums)
-        
-        return TreeNode(max_value, left_node, right_node)
+        left = self.constructMaximumBinaryTree(nums[:largest_num_index])
+        right = self.constructMaximumBinaryTree(nums[largest_num_index+1:])
+
+        return TreeNode(nums[largest_num_index], left, right)
